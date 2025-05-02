@@ -22,9 +22,10 @@ def printAllYellow():
     results = cursor.fetchall()
 
     #loop through all the results
+    print("Colour                        Hue Saturation Lightness")
 
     for shade in results:
-        print(shade)
+        print(f"{shade[1]:<30}{shade[2]:<7}{shade[3]:<11}{shade[3]:<4}")
 
     db.close
 
