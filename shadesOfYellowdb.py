@@ -9,20 +9,26 @@ import sqlite3
 DATABASE = "shadesOfYellow.db"
 
 #functions
+def printAllYellow():
+    """prints all the shades of yellow in database"""
+
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+
+    #SQL code
+    sql = "SELECT * FROM shadesOfYellow"
+
+    cursor.execute(sql)
+    results = cursor.fetchall()
+
+    #loop through all the results
+
+    for shade in results:
+        print(shade)
+
+    db.close
+
 
 #main
 
-db = sqlite3.connect(DATABASE)
-
-cursor = db.cursor()
-
-#SQL code
-sql = "SELECT * FROM shadesOfYellow"
-
-cursor.execute(sql)
-
-results = cursor.fetchall()
-
-print(results)
-
-db.close
+printAllYellow()
